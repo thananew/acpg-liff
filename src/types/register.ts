@@ -17,6 +17,8 @@ export interface RegisterFormData {
   fullName: string;
   phone: string;
   email: string;
+  password: string;
+  confirmPassword: string;
   // Role specific fields
   agentLicenseNo?: string;
   companyName?: string;

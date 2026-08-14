@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import type { User } from "../types/shared";
 import { useLiff } from "../hooks/useLiff";
 
@@ -7,11 +8,8 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // Mock user id for local dev — apps/api's in-memory repository has this seeded.
 const MOCK_USER_ID = "usr_1";
 
-interface ProfileProps {
-  onBack: () => void;
-}
-
-export function Profile({ onBack }: ProfileProps) {
+export function Profile() {
+  const navigate = useNavigate();
   const { profile, isLoggedIn, isReady } = useLiff();
   const [apiUser, setApiUser] = useState<User | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
@@ -37,7 +35,7 @@ export function Profile({ onBack }: ProfileProps) {
 
   return (
     <section>
-      <button className="link-button" onClick={onBack}>
+      <button className="link-button" onClick={() => navigate("/home")}>
         &larr; Back
       </button>
       <h1>Profile</h1>

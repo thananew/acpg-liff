@@ -1,12 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { liffClient } from "../lib/liff-client";
 import { useLiff } from "../hooks/useLiff";
 
-interface HomeProps {
-  onNavigateToProfile: () => void;
-  onNavigateToRegister: () => void;
-}
-
-export function Home({ onNavigateToProfile, onNavigateToRegister }: HomeProps) {
+export function Home() {
+  const navigate = useNavigate();
   const { isReady, isLoggedIn, isInClient, error } = useLiff();
 
   return (
@@ -24,8 +21,12 @@ export function Home({ onNavigateToProfile, onNavigateToRegister }: HomeProps) {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "20px" }}>
-        <button className="btn-primary" onClick={onNavigateToRegister}>
+        <button className="btn-primary" onClick={() => navigate("/register")}>
           📝 หน้าลงทะเบียน (Register Rich Menu)
+        </button>
+
+        <button className="btn-secondary" onClick={() => navigate("/login")}>
+          🔑 Login (Agent / Staff)
         </button>
 
         {isReady && !isLoggedIn && !error && (
@@ -35,7 +36,7 @@ export function Home({ onNavigateToProfile, onNavigateToRegister }: HomeProps) {
         )}
 
         {isReady && isLoggedIn && (
-          <button className="btn-secondary" onClick={onNavigateToProfile}>
+          <button className="btn-secondary" onClick={() => navigate("/profile")}>
             View Profile
           </button>
         )}
