@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Liff } from "@line/liff";
 import liff from "@line/liff";
-import type { LineProfile } from "@line-oa/shared";
+import type { LineProfile } from "../types/shared";
 import { liffClient } from "../lib/liff-client";
 
 interface UseLiffState {

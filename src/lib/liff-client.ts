@@ -1,5 +1,5 @@
 import liff from "@line/liff";
-import type { LineProfile } from "@line-oa/shared";
+import type { LineProfile } from "../types/shared";
 
 const LIFF_ID = import.meta.env.VITE_LIFF_ID;
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { User } from "@line-oa/shared";
+import type { User } from "../types/shared";
 import { useLiff } from "../hooks/useLiff";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;

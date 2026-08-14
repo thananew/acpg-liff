@@ -10,7 +10,6 @@
     "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {
-    "@line-oa/shared": "workspace:*",
     "@line/liff": "^2.29.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"

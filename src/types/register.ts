@@ -1,4 +1,4 @@
-import type { UserRole } from "@line-oa/shared";
+import type { UserRole } from "./shared";
 
 export type RegisterRole = Extract<UserRole, "agent" | "borrower" | "customer">;
 
