@@ -51,7 +51,13 @@ export function LoginPage() {
         </button>
       </header>
 
-      {step === 1 && <RoleSelectionPage onSelectRole={handleSelectRole} />}
+      {step === 1 && (
+        <RoleSelectionPage
+          onSelectRole={handleSelectRole}
+          title="Login"
+          subtitle="Select your role to continue"
+        />
+      )}
 
       {step === 2 && (
         <section className="step-content acpg-step2">

@@ -22,9 +22,15 @@ const ROLE_SELECT_OPTIONS: RoleSelectOption[] = [
 
 interface RoleSelectionPageProps {
   onSelectRole: (roleId: RegisterRole) => void;
+  title?: string;
+  subtitle?: string;
 }
 
-export function RoleSelectionPage({ onSelectRole }: RoleSelectionPageProps) {
+export function RoleSelectionPage({
+  onSelectRole,
+  title = "Register",
+  subtitle = "Alpha Capital Partners Group Public Company Limited",
+}: RoleSelectionPageProps) {
   return (
     <section className="step-content acpg-role-select">
       <div className="acpg-brand-header">
@@ -32,10 +38,8 @@ export function RoleSelectionPage({ onSelectRole }: RoleSelectionPageProps) {
       </div>
 
       <div className="step-title-group">
-        <h1 className="main-title">Register</h1>
-        <p className="sub-title">
-          Alpha Capital Partners Group Public Company Limited
-        </p>
+        <h1 className="main-title">{title}</h1>
+        <p className="sub-title">{subtitle}</p>
       </div>
 
       <div className="acpg-role-list">
