@@ -10,6 +10,7 @@ import { Home } from "./pages/Home";
 import { Profile } from "./pages/Profile";
 import { RegisterPage } from "./pages/RegisterPage";
 import { LoginPage } from "./pages/LoginPage";
+import { useLiff } from "./hooks/useLiff";
 import "./styles/app.css";
 
 function RootRedirect() {
@@ -31,6 +32,16 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  // Wait for liff.init() to finish reading/consuming the LINE login callback
+  // params (code/state/liff.state) before any route redirect touches the
+  // URL — redirecting first strips those params and breaks the login,
+  // causing a login loop when opened from the LINE app.
+  const { isReady } = useLiff();
+
+  if (!isReady) {
+    return null;
+  }
+
   return (
     <BrowserRouter>
       <ScrollToTop />
