@@ -37,6 +37,8 @@ export function useLiff() {
 
         if (cancelled) return;
 
+        console.log("LINE userId:", profile?.userId);
+
         setState({
           liffObject: liff,
           profile,
