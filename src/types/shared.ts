@@ -48,3 +48,16 @@ export interface ApiErrorBody {
     code: string;
   };
 }
+
+export interface RedeemAgentCodeDto {
+  lineUserId: string;
+  code: string;
+  displayName?: string;
+  pictureUrl?: string | null;
+}
+
+export interface RedeemAgentCodeResult {
+  user: User;
+  richMenuUpdated: boolean;
+}
+

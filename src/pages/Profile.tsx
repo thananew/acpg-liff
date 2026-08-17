@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import type { User } from "../types/shared";
 import { useLiff } from "../hooks/useLiff";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "http://localhost:4000").replace(/\/+$/, "");
 
 // Mock user id for local dev — apps/api's in-memory repository has this seeded.
 const MOCK_USER_ID = "usr_1";
@@ -19,7 +19,7 @@ export function Profile() {
 
     const controller = new AbortController();
 
-    fetch(`${API_BASE_URL}/users/${MOCK_USER_ID}`, { signal: controller.signal })
+    fetch(`${API_BASE_URL}users/${MOCK_USER_ID}`, { signal: controller.signal })
       .then(async (res) => {
         if (!res.ok) throw new Error(`API responded with ${res.status}`);
         const data = (await res.json()) as { user: User };
