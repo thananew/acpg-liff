@@ -56,7 +56,7 @@ export function LoginPage() {
         const message =
           data.error?.message ||
           data.message ||
-          "รหัส Code ไม่ถูกต้อง กรุณาตรวจสอบรหัสอีกครั้ง";
+          "Invalid code. Please check your code again.";
         setErrorMessage(message);
         return;
       }
@@ -65,7 +65,7 @@ export function LoginPage() {
       setStep(3);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err: unknown) {
-      setErrorMessage("ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ กรุณาลองใหม่อีกครั้ง");
+      setErrorMessage("Unable to connect to the server. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
